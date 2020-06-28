@@ -6,7 +6,7 @@ To cut to the chase, I wanted to be able to control my LG in-wall, air-condition
 
 ## Intro
 
-So the basic plan is send out IR signals from a Raspberry Pi to control a device that I normally control with a common handheld remote control.  At my disposal, I had a RaspPi 3, a Rasp Pi Wireless, and a Rasp Pi 4 all just lying around begging to be used.  If it weren't the case that I had a Raspberry Pi, I'd probably have gone with the [ESP8266](https://www.sparkfun.com/products/13678), but that's a project for another time, because frankly, I like the hyper-convenience of using a Raspberry Pi.
+So the basic plan is send out IR signals from a Raspberry Pi to control a device that I normally control with a common handheld remote control.  At my disposal, I had a RaspPi 3, a Rasp Pi Zero Wireless, and a Rasp Pi 4 all just lying around begging to be used.  If it weren't the case that I had a Raspberry Pi, I'd probably have gone with the [ESP8266](https://www.sparkfun.com/products/13678), but that's a project for another time, because frankly, I like the hyper-convenience of using a Raspberry Pi.
 
 This method is for people who don't have a [USB IR Toy v2](http://dangerousprototypes.com/docs/USB_IR_Toy_v2) to use with [LIRC](https://www.lirc.org/) because they would rather just use the extra IR LED that's laying around (or can be picked up for about 3/$1 or cheaper in bulk).  It's also for people who don't want to scratch their heads at the unclear instructions that accompany some IR libraries and online listings when it comes to reading and generating signal file notation.  This is a very straight-forward approach, but there is a catch - you need an oscilloscope.  I'm using a RIGOL DS1054Z for this report, but originally I used some other one that I borrowed from a friend.  Actually, you don't absolutely *need* an oscilloscope if you can decipher what the signal is supposed to look like based on other sources, but you'll be working blind.
 
@@ -77,9 +77,42 @@ So the theory is all there and our circuit is there, but now comes the job of ma
 
 To get it to run directly off of the Raspberry Pi was a different story.
 
-#### The failures
+### The Failures
 
-At first, I tried the blissfully hopeful approach of just inserting sleep commands as I required them and seeing if that would work.  Unfortunately the Linux kernel had other things to do, *especially* once I signaled to it that I wanted to sleep, which is generally its cue to do other things - other things from which it doesn't necessarily return exactly on time.  The result was a very uneven and stretched out signal.  Just to make sure I couldn't get away with this approach, I tried increasing the run-time priority to realtime for this process, but it was met with the same fate.  It did perform a lot better, but really not nearly good enough.  Being stubborn, I decided to try the WiringPi library to see if it could succeed where I had failed.  Unfortunately, no, they had the same problem - it's a software PWM, afterall, since the Raspberry Pi does not come with a hardware PWM.  Well..... it comes with something similar.
+At first, I tried the blissfully hopeful approach of just inserting sleep commands as I required them and seeing if that would work.  Unfortunately the Linux kernel had other things to do, *especially* once I signaled to it that I wanted to sleep, which is generally its cue to do other things - other things from which it doesn't necessarily return exactly on time.  The result was a very uneven and stretched out signal.  Just to make sure I couldn't get away with this approach, I tried increasing the run-time priority to realtime for this process, but it was met with the same fate.  It did perform a lot better, but really not nearly good enough.  Being stubborn, I decided to try the [WiringPi](http://wiringpi.com/) library to see if it could succeed where I had failed.  Unfortunately, no, they had the same problem - it's a software PWM, afterall, since the Raspberry Pi does not come with a hardware PWM.  Well..... it comes with something similar.
 
-#### The breakthrough
+### The Breakthrough*
 
+The final breakthrough* came when I realized that the Raspberry Pi has built-in Serial Port Interface (SPI) support.  So the major downside to this approach is it eats up an SPI port, but the major upside for me was I didn't care.  All this thing was going to do was sit there and wait for me to tell it to turn on the A/C.
+
+Luckily, the [WiringPi](http://wiringpi.com/) library also included [SPI control](http://wiringpi.com/reference/spi-library/) in a very easy-to-use form.  Three simple commands allowed me to do everything I needed:
+
+<pre>
+wiringPiSetup();
+wiringPiSPISetup (SPICHANNEL, SPISPEED);
+<fill buffer with required bits>
+wiringPiSPIDataRW (SPICHANNEL, databuf, DATABUFSIZE);
+</pre>
+
+I simply set the SPISPEED to 76 kHz (remember, I need two bits per 38kHz cycle), fill the buffer with the signal I wish to send, and finally send out the buffer over the SPI at a *constant* rate!  Filling the buffer is a bit-wise job, so you have to keep track of your progress to make sure everything is packed in correctly.  See the code [here](./wpispiplayback.cc).
+
+
+#### Why the asterisk??
+
+The asterisk is because there was a bit of a catch with this approach, which was that occasionaly I would get a bad output signal.  The signal would look even, but simply at the wrong frequency.  It turns out that this was caused by the power-save feature of the raspberry pi, which affected the CPU clock, from which the SPI clock was derived!  That meant I had to turn off power-save mode before running the command and restore it afterwards, like so:
+
+<pre>
+sudo echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+<run it>
+sudo echo ondemand > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+</pre>
+
+<hr>
+
+### Productizing It
+
+
+
+#### Other Hardware
+
+This code was immediately deployable on the Raspberry Pi Zero Wireless, which I felt slightly less guilty about leaving hooked up to do my A/C bidding.
