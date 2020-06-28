@@ -1,0 +1,1 @@
+www-data ALL=(ALL) NOPASSWD: /home/pi/Desktop/ir/bin/
