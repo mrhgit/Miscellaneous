@@ -61,10 +61,16 @@ Without being given the real format for this signal, it was up to me to just mak
 |ON A/C at 74'F|[Header],1,4,12,5,3,1,3|
 |ON Heat at 76'F|[Header],1,4,9,3,3,3,3,2,1,1,1,1|
 
-Try to follow the OFF signal using the oscilloscope screengrab above.  It should be obvious.
+Try to follow the LG OFF signal code using the oscilloscope screengrab above.  It should be obvious - just count the pulses in each group.
 
 ## Sending the Remote Control Signal
 
+### Basic Method
+
+So the basic method is to turn a pin on and off at 38kHz for the duration of a high-voltage/1/ON signal and turn it completely off for a low-voltage/0/OFF pulse.  For example, the long pulse at the beginning of the LEG "turn unit OFF" command in the screengrab above lasts about 4300 microseconds.  A 38kHz signal has a period of about 26.31578 microseconds.  We'll be generating a [square wave](https://en.wikipedia.org/wiki/Square_wave), whose fundamental waveform is the sine wave at the same frequency but also contains all the odd harmonics, so it's what we want (the sine wave) and more (all the odd harmonics as decreasing magnitudes), which can be filtered out or simply ignored.  Because a cycle in a square wave is 1 for half of the duration and 0 for the other half of the duration, we need to divide our frequency in half to get our pin control rate, which means we have to be able to control the state of a pin reliably about every 13 microseconds for the total duration of our longest signal, which is over 60 ms!  That's a long time to have uninterrupted program execution in a Linux environment.
+
 ### Timing is Everything
+
+One of the problems the USB IR Toy v2 mentioned above solves is how to send 
 
 I had run into issues with infrared remote control routines available on the internet for the raspberry pi.  The main issue:  getting interrupted by the Linux kernel all the time!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I did it.
