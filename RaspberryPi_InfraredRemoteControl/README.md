@@ -14,7 +14,9 @@ OK, so now we have a way to receive IR signals and visualize them on the oscillo
 
 ![Sony OK Sequence](./oscilloscope_screengrabs/sony_tv_ok_zoomed_out.png)
 
+You can see the same sequence repeated six times.  What's interesting is that the number of repeats changes every time you hit the button!  I think it goes from three to six and might depend on the state of the battery or how much time passed since the last button push.  I don't think there's a changing rule and you can just use five or six sequences every time to mimic it.  Ahh, but what exactly do we mimic?  Let's look closer for a clearer shot of the code:
 
+![Sony OK Sequence Closer](./oscilloscope_screengrabs/sony_tv_ok_code.png)
 
 
 I had run into issues with infrared remote control routines available on the internet for the raspberry pi.  The main issue:  getting interrupted by the Linux kernel all the time!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I did it.
