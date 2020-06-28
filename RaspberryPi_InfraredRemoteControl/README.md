@@ -90,7 +90,7 @@ Luckily, the [WiringPi](http://wiringpi.com/) library also included [SPI control
 <pre>
 wiringPiSetup();
 wiringPiSPISetup (SPICHANNEL, SPISPEED);
-<fill buffer with required bits>
+...fill buffer with required bits...
 wiringPiSPIDataRW (SPICHANNEL, databuf, DATABUFSIZE);
 </pre>
 
@@ -103,7 +103,7 @@ The asterisk is because there was a bit of a catch with this approach, which was
 
 <pre>
 sudo echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
-<run it>
+...run it...
 sudo echo ondemand > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 </pre>
 
