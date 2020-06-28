@@ -7,7 +7,7 @@ This method is for people who don't have a [USB IR Toy v2](http://dangerousproto
 <hr>
 
 ### Quick Note on IR Remote Controls
-The signal is simply a 38kHz waveform that is toggled on and off in a specific pattern that may or may not be required to repeat at certain intervals.  This is referred to as [On-Off Keying (OOK)](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) and is really as simple as it sounds.  See the oscilloscope shots below for a slight variant to this definition.  The method used to send IR signals from the Raspberry Pi will be using this exact definition.
+The signal is simply a 38kHz waveform that is toggled on and off in a specific pattern that may or may not be required to repeat at certain intervals.  This is referred to as [On-Off Keying (OOK)](https://en.wikipedia.org/wiki/On%E2%80%93off_keying) and is really as simple as it sounds.  See the oscilloscope shots below for a slight variant to this definition.  The method used to send IR signals from the Raspberry Pi use this exact definition.
 
 <hr>
 
@@ -25,6 +25,8 @@ You can see the same sequence repeated six times.  What's interesting is that th
 
 ![Sony OK Sequence Closer](./oscilloscope_screengrabs/sony_tv_ok_code.png)
 
+So the question is what is all that noise at the top of these otherwise nice, blocky readable 1's and 0's of varying lengths?  That's the 38kHz carrier.  You can see it more clearly in this shot:
 
+![Sony OK Up Close](./oscilloscope_screengrabs/sony_tv_ok_closeup.png)
 
 I had run into issues with infrared remote control routines available on the internet for the raspberry pi.  The main issue:  getting interrupted by the Linux kernel all the time!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I did it.
