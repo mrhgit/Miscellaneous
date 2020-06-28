@@ -43,10 +43,26 @@ And EVEN CLOSER!
 
 The frequency measurement isn't working on this shot, probably because the signal doesn't start until halfway through the window, but you can measure it manually.  Just count the number of cycles per division.  In this case it looks like about 4 cycles in 100 microseconds - that's 25 microseconds/cycle or, inverting that, about 40kHz - right in line with the expected 38kHz.
 
-Well, okay, we knew that we needed 38kHz, but what's really interesting is the code itself.  That's what we need to mimic.  In actuality, I wanted to control my LG ductless air conditioning system so here are those codes:
+Well, okay, we knew that we needed 38kHz, but what's really interesting is the code itself.  That's what we need to mimic.  In actuality, I wanted to control my LG ductless air conditioning system so here's an example of the OFF command:
 
 ![LG Off Code](./oscilloscope_screengrabs/lg_ac_off_code.png)
 
+Yes, it's sending at 38kHz too.  To get the code, we measure the time distances between on's and off's and recreate it.  To be a little bit more clever, we can measure our basic symbol size so that our code for generating the waveform is more reusable.
+
+<hr>
+
+## The Codes
+
+Without being given the real format for this signal, it was up to me to just make one up that suited my needs.  I noticed that there was a common header to all signals, which was a long ON of 9300 microseconds followed by a shorter OFF of 4300 microseconds.  The rest of the signals were made up of multiple pulse trains.  For the length of the pulse train, the ON/OFF spacing was constant (450 microseconds on, 750 microseconds off), but there was a doubly-long pause inbetween pulse trains (1500 microseconds).  Here are the codes I was able to record for the LG unit, where the number represents the number of pulses in a sequence of pulse trains.
+
+OFF:  [Header],1,4,4,1,12,2,4,1
+ON A/C at 74'F: [Header],1,4,12,5,3,1,3
+ON Heat at 76'F: [Header],1,4,9,3,3,3,3,2,1,1,1,1
+
+Try to follow the OFF signal using the oscilloscope screengrab above.  It should be obvious.
+
 ## Sending the Remote Control Signal
+
+### Timing is Everything
 
 I had run into issues with infrared remote control routines available on the internet for the raspberry pi.  The main issue:  getting interrupted by the Linux kernel all the time!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I did it.
