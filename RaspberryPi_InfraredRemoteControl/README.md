@@ -1,4 +1,4 @@
-## Using the Raspberry Pi as a IR Remote Control
+## Using the Raspberry Pi as an IR Remote Control
 
 ### The Real Goal
 
