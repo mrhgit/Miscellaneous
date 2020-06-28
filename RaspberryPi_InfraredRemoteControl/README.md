@@ -73,8 +73,12 @@ To activate the infrared LED, it's simply necessary to connect a resistor in ser
 
 ### Timing is Everything
 
-One of the problems the USB IR Toy v2 mentioned above solves is controlling the pinout at a specified rate.  It can do this because it has a buffer where it stores data and runs its own microcontroller with its own clock.
+So the theory is all there and our circuit is there, but now comes the job of making that PIN state change exactly as we need it to.  One of the problems the USB IR Toy v2 mentioned above solves is controlling the pinout at a specified rate.  It can do this because it has a buffer where it stores data and runs its own microcontroller with its own clock.  A similar solution can be built using the Arduino.  In fact, I did use it just to prove that this hardware should work.
 
-A similar solution can be built using the Arduino.  In fact, I did use it just to prove that this 
+To get it to run directly off of the Raspberry Pi was a different story.
+
+#### The failures
+
+At first, I tried the blissfully hopeful approach of just inserting sleep commands as I required them and seeing if that would work.  Unfortunately the Linux kernel had other things to do, *especially* once I signaled to it that I wanted to sleep, which is generally its cue to do other things - other things from which it doesn't necessarily return exactly on time.  The result was a very uneven and stretched out signal.  Just to make sure I couldn't get away with this approach, I tried increasing the run-time priority to realtime for this process, but it was met with the same fate.  It did perform a lot better, but really not nearly good enough.  The Raspberry Pi does come with a PWM on-board.
 
 I had run into issues with infrared remote control routines available on the internet for the raspberry pi.  The main issue:  getting interrupted by the Linux kernel all the time!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I did it.
