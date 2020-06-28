@@ -4,12 +4,7 @@ sudo sh -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_g
 sudo ./a.out
 sudo sh -c "echo ondemand > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
  
-
-Example of programming GPIO from C or C++ using the sysfs interface on
-a Raspberry Pi.
-
-Will toggle GPIO24 (physical pin 18) at a 100 millisecond rate for 10
-seconds and then exit.
+Sends custom codes out over the SPI at a controlled rate to control device via an infrared diode.
 
 */
 
