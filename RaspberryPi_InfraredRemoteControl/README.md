@@ -85,7 +85,7 @@ At first, I tried the blissfully hopeful approach of just inserting sleep comman
 
 ### The Breakthrough*
 
-The final breakthrough* came when I realized that the Raspberry Pi has built-in Serial Port Interface (SPI) support.  So the major downside to this approach is it eats up an SPI port, but the major upside for me was I didn't care.  All this thing was going to do was sit there and wait for me to tell it to turn on the A/C.
+This is the trick I didn't see anywhere else on the web and the reason I'm adding this to my GitHub Repo.  The final breakthrough* came when I realized that the Raspberry Pi has built-in Serial Port Interface (SPI) support.  So the major downside to this approach is it eats up an SPI port, but the major upside for me was I didn't care.  All this thing was going to do was sit there and wait for me to tell it to turn on the A/C.
 
 Luckily, the [WiringPi](http://wiringpi.com/) library also included [SPI control](http://wiringpi.com/reference/spi-library/) in a very easy-to-use form.  Three simple commands allowed me to do everything I needed:
 
