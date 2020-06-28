@@ -12,7 +12,7 @@ The circuit board has two LED's next to each other.  The clear one I think is me
 
 OK, so now we have a way to receive IR signals and visualize them on the oscilloscope.  There are easy searchable databases out there for remote controller codes and there are devices such as the USB IR Toy that can help you grab some IR signals, but I preferred a more straightforward and fool-proof way:  looking at the transmitted waveform on an oscilloscope.  To do this, I simply hooked up an IR LED directly to my oscilloscope, set the vertical to 500mV/div and set the horizontal to 5ms/div.  I set up a trigger at about 0.7 volts and asked for a SINGLE trigger event.  Then I pointed my Sony TV remote directly at the clear IR LED, hit the "OK" button (well, it's the round button in the center of some arrows) and got this:
 
-[!Sony OK Sequence](./oscilloscope_screengrabs/sony_tv_ok_zoomed_out.png)
+![Sony OK Sequence](./oscilloscope_screengrabs/sony_tv_ok_zoomed_out.png)
 
 
 
