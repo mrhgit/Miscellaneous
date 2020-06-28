@@ -2,7 +2,7 @@
 
 ### The Real Goal
 
-To cut to the chase, I wanted to be able to control my LG in-wall, air-conditioning/heating unit via the Internet (read "my phone") so that I could cool the apartment down (or heat it up) before returning home.  This describes how I did that, with a little Sony TV remote control signal diversion.  Why the diversion?  Because I thought a Sony TV remote signal would be a common one that someone researching this project could use as in a cross-referencing manner.
+To cut to the chase, I wanted to be able to control my LG in-wall, air-conditioning/heating unit via the Internet (read "my phone") so that I could cool the apartment down (or heat it up) before returning home.  This describes how I did that, with a little Sony TV remote control signal diversion.  Why the diversion?  Because I thought a Sony TV remote signal would be a common one that someone researching this project could use to cross-referencing a different method.
 
 ## Intro
 
