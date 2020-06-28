@@ -107,12 +107,24 @@ sudo echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 sudo echo ondemand > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 </pre>
 
+Sure, it's possible to leave the Pi in performance mode 24/7, but why not save the power if you can?
+
 <hr>
 
 ### Productizing It
 
+The final step was to "productize" so executable so I could actually run it conveniently.  I wrote a simple webpage [php script](./var_www_html_ir/index.php) that presents three links "Heat", "A/C" and "Off" - a very straight-forward interface and only 34 lines of unoptimized code!
 
+One catch, as you might have seen just above, is that it requires sudo.  To allow apache to run the required scripts as sudo, I had to add a [file] in the /etc/sudoers.d directory.  Pretty easy stuff.
+
+I configured my internet router to perform port-forwarding and added a bookmark to my phone with my IP and the proper path the php script so I could easily access and control my old, infrared remote controlled unit from anywhere in the world (...that has Internet).
+
+Lastly, I edited the /boot/config.txt file on the raspberry pi to allow headless boot with VNC so I could make changes with a nice graphical interfave, taped it all in to place in a concealed location with the LED pointing at the IR receiver on the A/C unit, and started it back up to much applause.
 
 #### Other Hardware
 
-This code was immediately deployable on the Raspberry Pi Zero Wireless, which I felt slightly less guilty about leaving hooked up to do my A/C bidding.
+One of the nice things about the Raspberry Pi ecosystem is how supportive they are of backwards compatibility.  This code was immediately deployable on the Raspberry Pi Zero Wireless, which I felt slightly less guilty about leaving hooked up to do my A/C bidding.  It would probably work on any Raspberry Pi with an SPI adn running a version of Raspbian compatible with my CPU frequency control commands.
+
+As I said before, a nice, super-low power and super-low price option would be the ESP-8266, which I might get to one of these days...
+
+Thanks for reading.
