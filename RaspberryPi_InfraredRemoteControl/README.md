@@ -31,7 +31,7 @@ So the question is what is all that noise at the top of these otherwise nice, bl
 
 And EVEN CLOSER!
 
-![Sony OK Up Close](./oscilloscope_screengrabs/sony_tv_ok_38kHz.png)
+![Sony OK 38kHz](./oscilloscope_screengrabs/sony_tv_ok_38khz.png)
 
 The frequency measurement isn't working on this shot, probably because the signal doesn't start until halfway through the window, but you can measure it manually.  Just count the number of cycles per division.  In this case it looks like about 4 cycles in 100 microseconds - that's 25 microseconds/cycle or, inverting that, about 40kHz - right in line with the expected 38kHz.
 
