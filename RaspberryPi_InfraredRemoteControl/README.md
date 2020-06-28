@@ -63,6 +63,8 @@ Without being given the real format for this signal, it was up to me to just mak
 
 Try to follow the LG OFF signal code using the oscilloscope screengrab above.  It should be obvious - just count the pulses in each group.
 
+<hr>
+
 ## Sending the Remote Control Signal
 
 ### Basic Method
@@ -111,7 +113,7 @@ Sure, it's possible to leave the Pi in performance mode 24/7, but why not save t
 
 <hr>
 
-### Productizing It
+## Productizing It
 
 The final step was to "productize" so executable so I could actually run it conveniently.  I wrote a simple webpage [php script](./var_www_html_ir/index.php) that presents three links "Heat", "A/C" and "Off" - a very straight-forward interface and only 34 lines of unoptimized code!
 
