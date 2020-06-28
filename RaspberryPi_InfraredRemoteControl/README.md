@@ -55,9 +55,11 @@ Yes, it's sending at 38kHz too.  To get the code, we measure the time distances 
 
 Without being given the real format for this signal, it was up to me to just make one up that suited my needs.  I noticed that there was a common header to all signals, which was a long ON of 9300 microseconds followed by a shorter OFF of 4300 microseconds.  The rest of the signals were made up of multiple pulse trains.  For the length of the pulse train, the ON/OFF spacing was constant (450 microseconds on, 750 microseconds off), but there was a doubly-long pause inbetween pulse trains (1500 microseconds).  Here are the codes I was able to record for the LG unit, where the number represents the number of pulses in a sequence of pulse trains.
 
-OFF:  [Header],1,4,4,1,12,2,4,1
-ON A/C at 74'F: [Header],1,4,12,5,3,1,3
-ON Heat at 76'F: [Header],1,4,9,3,3,3,3,2,1,1,1,1
+|Signal|Pattern|
+|------|-------|
+|OFF|[Header],1,4,4,1,12,2,4,1|
+|ON A/C at 74'F|[Header],1,4,12,5,3,1,3|
+|ON Heat at 76'F|[Header],1,4,9,3,3,3,3,2,1,1,1,1|
 
 Try to follow the OFF signal using the oscilloscope screengrab above.  It should be obvious.
 
