@@ -121,7 +121,7 @@ One catch, as you might have seen just above, is that it requires sudo.  To allo
 
 I configured my internet router to perform port-forwarding and added a bookmark to my phone with my IP and the proper path the php script so I could easily access and control my old, infrared remote controlled unit from anywhere in the world (...that has Internet).
 
-**Disclaimer:  Given that I'm using PHP and this thing is opened up to the web, there are probably many security issues to beware of that I simply ignored in my case.  You might not be so lucky.**
+**Disclaimer:  Given that I'm using PHP and this thing is opened up to the web, there are probably many security issues to beware of that I simply ignored in the code.  I don't consider it a good idea for you to use my code in any actual production environment.**
 
 Lastly, I edited the /boot/config.txt file on the raspberry pi to allow headless boot with VNC so I could make changes with a nice graphical interfave, taped it all in to place in a concealed location with the LED pointing at the IR receiver on the A/C unit, and started it back up to much applause.
 
