@@ -1,4 +1,4 @@
-# Adding Variable Volume Line Out to TV
+# Adding a Variable-Volume Line Out to my Sony Bravia TV
 
 ## The Problem
 I had a SONY Bravia HDTV (KDL46EX500) that allowed you to switch the audio output between the built-in speakers and a fixed-level RCA-style line out and an optical out (no headset output on this one).  The fixed-level line out and optical line out are options meant for A/V Receiver-based setups, which are controlled by their own remote control.  The idea is the audio gets sent at the proper, known level and amplified later with the volume controlled by a separate system presumably with its own remote control.  *But* I had a set of computer speakers - the Logitech Z323 2-way + subwoofer speaker system - that only had RCA inputs and a 3mm headphone jack input and only a volume control knob.
