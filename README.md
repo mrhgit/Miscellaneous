@@ -1,5 +1,8 @@
 # Miscellaneous
-Various topics of interest.
+Various topics of interest... to me, at least!
 
-## Turn Your Raspberry Pi into an IR/Infrared Remote Control
-I had run into issues with infrared remote control routines available on the internet for the raspberry pi.  The main issue:  getting interrupted by the Linux kernel all the time!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I did it.
+## Turn Your Raspberry Pi into an IR/Infrared Remote Control [Here](./RaspberryPi_InfraredRemoteControl/)
+I had run into issues with infrared remote control routines available on the internet for the Raspberry Pi.  The main issues:  being forced to use some specialized hardware that cost as much as a Raspberry Pi or getting interrupted by the Linux kernel all the time when controlling pins myself!  Check out the [details](./RaspberryPi_InfraredRemoteControl) for how I overcame those issues.
+
+## Add a Variable-Volume Line Out to your TV
+My Sony (great company) Bravia HDTV has built-in speakers and a fixed-level line out.  I had a Logitech Z323 2-way + subwoofer speaker system with a volume knob.  This is how I merged the two and kept my remote control volume control!
