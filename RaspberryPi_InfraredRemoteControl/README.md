@@ -101,7 +101,7 @@ I simply set the SPISPEED to 76 kHz (remember, I need two bits per 38kHz cycle),
 
 #### Why the asterisk??
 
-The asterisk is because there was a bit of a catch with this approach, which was that occasionaly I would get a bad output signal.  The signal would look even, but simply at the wrong frequency.  It turns out that this was caused by the power-save feature of the raspberry pi, which affected the CPU clock, from which the SPI clock was derived!  That meant I had to turn off power-save mode before running the command and restore it afterwards, like so:
+The asterisk is because there was a bit of a catch with this approach, which was that occasionally I would get a bad output signal.  The signal would look generally correct, but simply be at the wrong frequency.  It turns out that this was caused by the power-save feature of the raspberry pi, which affected the CPU clock, from which the SPI clock was derived!  That meant I had to turn off power-save mode before running the command and restore it afterwards, like so:
 
 <pre>
 sudo echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
