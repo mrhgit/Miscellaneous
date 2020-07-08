@@ -123,34 +123,33 @@ C-L-Z-M:  i17 + i25 = i19 + i26
 That did the trick.  Adding that equation into the matrix representation and rerunning the script gives us all the currents:
 <pre>
 Currents (from Reduced Row Echelon Form)
-i0 = 0.332858
-i1 = 0.472327
-i2 = 0.298239
-i3 = 0.233723
-i4 = 0.058012
-i5 = 0.135378
-i6 = 0.139468
-i7 = 0.083977
-i8 = 0.174088
-i9 = 0.104690
-i10 = 0.064516
-i11 = 0.169206
-i12 = 0.066667
-i13 = -0.008655
-i14 = 0.131288
-i15 = 0.004090
-i16 = 0.127198
-i17 = 0.527673
-i18 = 0.118675
-i19 = 0.016426
-i20 = 0.075322
-i21 = 0.085824
-i22 = 0.188073
-i23 = 0.141988
-i24 = 0.400475
-i25 = 0.408998
-i26 = 0.102249
-i27 = 0.000000
+i1 = 0.332858
+i2 = 0.472327
+i3 = 0.298239
+i4 = 0.233723
+i5 = 0.058012
+i6 = 0.135378
+i7 = 0.139468
+i8 = 0.083977
+i9 = 0.174088
+i10 = 0.104690
+i11 = 0.064516
+i12 = 0.169206
+i13 = 0.066667
+i14 = -0.008655
+i15 = 0.131288
+i16 = 0.004090
+i17 = 0.127198
+i18 = 0.527673
+i19 = 0.118675
+i20 = 0.016426
+i21 = 0.075322
+i22 = 0.085824
+i23 = 0.188073
+i24 = 0.141988
+i25 = 0.400475
+i26 = 0.408998
+i27 = 0.102249
 </pre>
 
 ### Success! ###
@@ -165,7 +164,3 @@ And using Ohm's Law again:
 </pre>
 
 So the Current is **1.337146 Amps** and the Equivalent Resistance is **0.747861 Ohms**, which are precisely the current and resistance found by the PSPICE simulation mentioned above.
-
-## There's More... Unfortunately ##
-
-Ok, so our numbers matched the simulation - great.  ***BUT*** there are some really big things amiss with the solution.  Namely, the current going *into* the circuit (i1 + i2 + i3 + i4) doesn't equal the current coming *out* of the circuit (i18 + i25 + i26)!  So what is going on?
