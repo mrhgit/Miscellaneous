@@ -91,12 +91,12 @@ Divide by R.
   1(amp) = i2 + i18
 </pre>
 
-We now have 28 equations and 27 unknowns (*i1*...*i27*).  If the equations are independent, that should be (more than) enough to solve for all the currents.  To do so, we simply place all the equations into a matrix A of coefficients that are multiplied by the variables [i1..i26] and a constant [1] in order to equal a 0 vector.
+We now have 28 equations and 27 unknowns (*i1*...*i27*).  If the equations are independent, that should be (more than) enough to solve for all the currents.  To do so, we simply place all the equations into a matrix A of coefficients that are multiplied by the variables [i1..i27] and a constant [1] in order to equal a 0 vector.
 
 <pre>
 Ax = 0
 A = coefficients from the equations
-x = [i1, i2, i3, ... i24, i25, i26, 1]T
+x = [i1, i2, i3, ... i25, i26, i27, 1]T
 
 So the row for the B-F-H-L-I loop can be found as follows, starting with the equation from above:
   i5 + i13 + i24 = i6 + i15
