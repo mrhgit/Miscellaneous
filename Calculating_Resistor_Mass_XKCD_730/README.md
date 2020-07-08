@@ -152,9 +152,12 @@ i27 = 0.000000
 </pre>
 
 Going back to our first Kirchhoff's Law equation:
+<pre>
   i = i1 + i2 + i3 + i4 = 1.337146
+</pre>
 And using Ohm's Law again:
+<pre>
   R = 1/I = 0.747861
 </pre>
 
-...which are precisely the current and resistance found by the PSPICE simulation mentioned above.
+So the Current is **1.337146 Amps** and the Equivalent Resistance is **0.747861 Ohms**, which are precisely the current and resistance found by the PSPICE simulation mentioned above.
