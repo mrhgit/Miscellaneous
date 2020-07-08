@@ -49,7 +49,7 @@ Really, we need to combine the equations at nodes A and Z, because we only want 
 A/Z:  i1 + i2 + i3 + i4 = i18 + i25 + i26
 </pre>
 
-Let's use Ohm's Law for each loop within the circuit.  For example, the nodes A-B-C create a loop, as do B-F-H-L-I.  Let's look at A-B-C as an example.  In order to use Ohm's Law in this way, we just need to pick two different nodes.  Let's pick A and C.  Let C be 0V.  To get the voltage at A, we can say:
+Let's use Ohm's Law for each loop within the circuit.  For example, the nodes A-B-C create a loop, as do B-F-H-L-I.  Let's look at A-B-C as an example.  In order to use Ohm's Law in this way, we just need to pick two different nodes.  Let's pick A and C, so we try to get from C to A both ways.  To get the voltage at A, we can say:
 <pre>
 Va = Vc + i2 * R
 Va = Vc + i7 * R + i1 * R
