@@ -82,12 +82,13 @@ Also using Ohm's Law, we can create a connection between nodes A and Z in order 
 <pre>
 Vc = Vz + i18 * R
 Va = Vc + i2 * R
+
 Remember, let Va = 1, Vc = 0.  This is us "probing" the circuit.
-Vc = i18 * R
-1(volt) = Vc + i2 * R
+  Vc = i18 * R
+  1(volt) = Vc + i2 * R
 Substitute the former into the latter.
-1(volt) = i18 * R + i2 * R
+  1(volt) = i18 * R + i2 * R
 Divide by R.
-1(amp) = i2 + i18
+  1(amp) = i2 + i18
 </pre>
 
