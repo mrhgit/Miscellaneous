@@ -28,4 +28,22 @@ Kirchhoff's Current Law states that the sum of current going into a node equals 
 
 So given these two laws of electrical engineering, we can come up with a plethora of equations.
 
-For each node, there is Kirchhoff's Law:
+For each node (except nodes A and Z), there is Kirchhoff's Law:
+A:  i = i1 + i2 + i3 + i4 = i18 + i25 + i26
+B:  i1 = i5 + i6 + i7
+C:  i2 + i7 + i9 + i16 = i17 + i18 + i19 + i20
+D:  i3 + i11 = i8 + i9 + i10
+E:  i4 = i11 + i12
+F:  i5 = i13 + i14
+G:  i8 + i14 = i21
+H:  i13 + i21 = i24
+I:  i6 = i15 + i16
+J:  i20 + i22 = i27
+K:  i10 + i12 = i22 + i23
+L:  i15 + i17 + i24 = i25
+M:  i19 + i23 + i27 = i26
+Z:  i = i18 + i25 + i26
+
+Really, we need to combine the equations at nodes A and Z, because we only want to focus on what's between nodes A and Z:
+A/Z:  i1 + i2 + i3 + i4 = i18 + i25 + i26
+
