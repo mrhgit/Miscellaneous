@@ -22,6 +22,7 @@ The next thing to do is to start labeling - labeling nodes (red) and currents (b
 Two formulas can be used to start writing down equations:  [Ohm's Law](https://en.wikipedia.org/wiki/Ohm%27s_law) and [Kirchhoff's Current Law](https://en.wikipedia.org/wiki/Kirchhoff%27s_circuit_laws#Kirchhoff's_current_law).
 
 Ohm's Law states that the voltage across a resistor (V) = current through the resistor (I) multiplied by the resistance (R).  **V=IR**
+
 Kirchhoff's Current Law states that the sum of current going into a node equals zero.  This is why there are arrows drawn for current - because directionality matters in these equations.
 
 So given these two laws of electrical engineering, we can come up with a plethora of equations.
