@@ -49,3 +49,31 @@ Really, we need to combine the equations at nodes A and Z, because we only want 
 <pre>
 A/Z:  i1 + i2 + i3 + i4 = i18 + i25 + i26
 </pre>
+
+Let's use Ohm's Law for each loop within the circuit.  For example, the nodes A-B-C create a loop, as do B-F-H-L-I.  Let's look at A-B-C as an example.  In order to use Ohm's Law in this way, we just need to pick two different nodes.  Let's pick A and C.  Let C be 0V.  To get the voltage at A, we can say:
+<pre>
+Va = Vc + i2 * R
+Va = Vc + i7 * R + i1 * R
+Vc + i2 * R = Vc + i7 * R + i1 * R    Combining the two equations
+i2 * R = (i7 + i1) * R                Subtract Vc from both sides
+i2 = i7 + i1                          Divide both sides by R
+</pre>
+That gives us yet another equation using only our number-labeled resistors.
+
+Doing that for all loops:
+<pre>
+A-B-C:      i2 = i1 + i7
+A-B-F-G-D:  i1 + i5 + i14 = i3 + i8
+A-C-D:      i2 = i3 + i9
+A-D-E:      i3 = i4 + i11
+B-C-I:      i7 = i6 + i16
+B-F-H-L-I:  i5 + i13 + i24 = i6 + i15
+C-D-K-J:    i10 + i22 = i9 + i20
+C-D-G-H-L:  i8 + i21 + i24 = i9 + i17
+C-I-L:      i16 + i17 = i15
+C-J-M:      i19 = i20 + i27
+C-M-Z:      i19 + i26 = i18
+D-E-K:      i10 + i11 = i12
+F-G-H:      i14 + i21 = i13
+J-K-M:      i22 + i27 = i23
+</pre>
