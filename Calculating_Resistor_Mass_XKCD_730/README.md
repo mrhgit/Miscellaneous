@@ -77,3 +77,17 @@ D-E-K:      i10 + i11 = i12
 F-G-H:      i14 + i21 = i13
 J-K-M:      i22 + i27 = i23
 </pre>
+
+Also using Ohm's Law, we can create a connection between nodes A and Z in order to introduce a "true" value into our set of equations since the rest of it is simply symbolic so far:
+<pre>
+Vc = Vz + i18 * R
+Va = Vc + i2 * R
+Remember, let Va = 1, Vc = 0.  This is us "probing" the circuit.
+Vc = i18 * R
+1(volt) = Vc + i2 * R
+Substitute the former into the latter.
+1(volt) = i18 * R + i2 * R
+Divide by R.
+1(amp) = i2 + i18
+</pre>
+
