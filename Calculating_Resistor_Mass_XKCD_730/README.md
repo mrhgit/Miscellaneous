@@ -112,3 +112,49 @@ Which corresponds to:
 To solve for each current, you simply have to perform [Gaussian Elimination](https://en.wikipedia.org/wiki/Gaussian_elimination) to put the matrix in [Reduced Row Echelon Form](https://en.wikipedia.org/wiki/Row_echelon_form#Reduced_row_echelon_form).  Despite this being not too difficult, it can be tedious with a matrix this size and is a procedure that's prone to errors.  Luckily, there are computers that do such things for us.  I chose to use [sympy](https://docs.sympy.org/latest/index.html)'s [Matrix](https://docs.sympy.org/latest/tutorial/matrices.html) class.
 
 You can see the Python script I used [here](./resistor_mass.py).
+
+Running with just these equations did not solve the network entirely; there must have been some linear dependency between a couple equations.  So, I added another equation using Ohm's Law (there were no more Kirchhoff's Current Law equations to add).  I added the following, because i26 was unsolved in the reduction:
+<pre>
+C-L-Z-M:  i17 + i25 = i19 + i26
+</pre>
+
+That did the trick.  Adding that equation into the matrix representation and rerunning the script gives us all the currents:
+<pre>
+Currents (from Reduced Row Echelon Form)
+i0 = 0.332858
+i1 = 0.472327
+i2 = 0.298239
+i3 = 0.233723
+i4 = 0.058012
+i5 = 0.135378
+i6 = 0.139468
+i7 = 0.083977
+i8 = 0.174088
+i9 = 0.104690
+i10 = 0.064516
+i11 = 0.169206
+i12 = 0.066667
+i13 = -0.008655
+i14 = 0.131288
+i15 = 0.004090
+i16 = 0.127198
+i17 = 0.527673
+i18 = 0.118675
+i19 = 0.016426
+i20 = 0.075322
+i21 = 0.085824
+i22 = 0.188073
+i23 = 0.141988
+i24 = 0.400475
+i25 = 0.408998
+i26 = 0.102249
+i27 = 0.000000
+</pre>
+
+Going back to our first Kirchhoff's Law equation:
+  i = i1 + i2 + i3 + i4 = 1.337146
+And using Ohm's Law again:
+  R = 1/I = 0.747861
+</pre>
+
+...which are precisely the current and resistance found by the PSPICE simulation mentioned above.
