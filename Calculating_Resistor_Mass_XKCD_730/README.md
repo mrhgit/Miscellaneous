@@ -15,4 +15,4 @@ Needless to say, I had to reduce that resistor mass to a single equivalent value
 The very first thing is to look for "freebies" in the diagram, such as resistors in series or parallel, but alas, there were none that I could spot!  [Randall](https://xkcd.com/about/) knows what he's doing.
 
 The next thing to do is to start labeling - labeling nodes and currents are all that's required.
-![Labeled Resistor Mass](./resistor_mass_labeled.png | width=400)
+<img src="./resistor_mass_labeled" alt="Labeled Resistor Mass" width="400"/>
