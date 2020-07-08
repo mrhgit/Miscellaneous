@@ -92,3 +92,23 @@ Divide by R.
   1(amp) = i2 + i18
 </pre>
 
+We now have 28 equations and 27 unknowns (*i1*...*i27*).  If the equations are independent, that should be (more than) enough to solve for all the currents.  To do so, we simply place all the equations into a matrix A of coefficients that are multiplied by the variables [i1..i26] and a constant [1] in order to equal a 0 vector.
+
+<pre>
+Ax = 0
+A = coefficients from the equations
+x = [i1, i2, i3, ... i24, i25, i26, 1]T
+
+So the row for the B-F-H-L-I loop can be found as follows, starting with the equation from above:
+  i5 + i13 + i24 = i6 + i15
+Move all to one side (sorry for the unnatural side-picking):
+  -i5 + i6 - i13 + i15 - i24 = 0
+Which is the same as:
+  0 * i1 + 0 * i2 + 0 * i3 + 0 * i4 + (-1) * i5 + (1) * i6 + ...
+Which corresponds to:
+[ 0, 0, 0, 0,-1, 1, 0, 0, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,-1, 0, 0, 0, 0],
+</pre>
+
+To solve for each current, you simply have to perform [Gaussian Elimination](https://en.wikipedia.org/wiki/Gaussian_elimination) to put the matrix in [Reduced Row Echelon Form](https://en.wikipedia.org/wiki/Row_echelon_form#Reduced_row_echelon_form).  Despite this being not too difficult, it can be tedious with a matrix this size and is a procedure that's prone to errors.  Luckily, there are computers that do such things for us.  I chose to use [sympy](https://docs.sympy.org/latest/index.html)'s [Matrix](https://docs.sympy.org/latest/tutorial/matrices.html) class.
+
+You can see the Python script I used [here](./resistor_mass.py).
