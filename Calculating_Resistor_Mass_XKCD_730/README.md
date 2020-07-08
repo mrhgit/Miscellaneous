@@ -109,6 +109,8 @@ Which corresponds to:
 [ 0, 0, 0, 0,-1, 1, 0, 0, 0, 0, 0, 0,-1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0,-1, 0, 0, 0, 0],
 </pre>
 
+### Solving ###
+
 To solve for each current, you simply have to perform [Gaussian Elimination](https://en.wikipedia.org/wiki/Gaussian_elimination) to put the matrix in [Reduced Row Echelon Form](https://en.wikipedia.org/wiki/Row_echelon_form#Reduced_row_echelon_form).  Despite this being not too difficult, it can be tedious with a matrix this size and is a procedure that's prone to errors.  Luckily, there are computers that do such things for us.  I chose to use [sympy](https://docs.sympy.org/latest/index.html)'s [Matrix](https://docs.sympy.org/latest/tutorial/matrices.html) class.
 
 You can see the Python script I used [here](./resistor_mass.py).
@@ -151,6 +153,8 @@ i26 = 0.102249
 i27 = 0.000000
 </pre>
 
+### Success ###
+
 Going back to our first Kirchhoff's Law equation:
 <pre>
   i = i1 + i2 + i3 + i4 = 1.337146
@@ -161,3 +165,7 @@ And using Ohm's Law again:
 </pre>
 
 So the Current is **1.337146 Amps** and the Equivalent Resistance is **0.747861 Ohms**, which are precisely the current and resistance found by the PSPICE simulation mentioned above.
+
+### There's More... Unfortunately ###
+
+Ok, so our numbers matched the simulation - great.  ***BUT*** there are some really big things amiss with the solution.  Namely, the current going *into* the circuit (i1 + i2 + i3 + i4) doesn't equal the current coming *out* of the circuit (i18 + i25 + i26)!  So what is going on?
