@@ -57,7 +57,7 @@ Vc + i2 * R = Vc + i7 * R + i1 * R    Combining the two equations
 i2 * R = (i7 + i1) * R                Subtract Vc from both sides
 i2 = i7 + i1                          Divide both sides by R
 </pre>
-That gives us yet another equation using only our number-labeled resistors.
+That gives us yet another equation using only our number-labeled currents!
 
 Doing that for all loops:
 <pre>
