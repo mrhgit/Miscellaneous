@@ -153,7 +153,7 @@ i26 = 0.102249
 i27 = 0.000000
 </pre>
 
-### Success ###
+### Success! ###
 
 Going back to our first Kirchhoff's Law equation:
 <pre>
@@ -166,6 +166,6 @@ And using Ohm's Law again:
 
 So the Current is **1.337146 Amps** and the Equivalent Resistance is **0.747861 Ohms**, which are precisely the current and resistance found by the PSPICE simulation mentioned above.
 
-### There's More... Unfortunately ###
+## There's More... Unfortunately ##
 
 Ok, so our numbers matched the simulation - great.  ***BUT*** there are some really big things amiss with the solution.  Namely, the current going *into* the circuit (i1 + i2 + i3 + i4) doesn't equal the current coming *out* of the circuit (i18 + i25 + i26)!  So what is going on?
