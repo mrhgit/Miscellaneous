@@ -163,3 +163,5 @@ And using Ohm's Law again:
 </pre>
 
 So the Current is **1.337146 Amps** and the Equivalent Resistance is **0.747861 Ohms**, which are precisely the current and resistance found by the PSPICE simulation mentioned above.
+
+Looks like I dodged the truck!
