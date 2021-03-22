@@ -8,6 +8,8 @@ I was bounty hunting on StackOverflow when I came across a question asking about
 
 Removing long periods of silence from an audio recording seems to be a fairly popular requirement and an interesting endeavour.  As a simple challenge, it's fun to think of clever ways to accomplish this with a simple Python script with some help from SciPy and NumPy.  Stretch goals were auto thresholding as well as any/all channel detection.  I ended up accomplishing those, each time adding yet more lines to something that I thought was already getting bloated from a dream of 20 lines of code!
 
+![result.wav](./result.wav.png)
+
 ## How it Works
 
 I have a [version of the script](./trim_silence.py) that's very user-friendly, but for demonstration, it's probably better to have more of a [barebones script](./trim_silence_basics.py).
