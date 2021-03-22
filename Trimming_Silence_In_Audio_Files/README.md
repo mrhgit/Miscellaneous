@@ -46,7 +46,7 @@ combined_channel_silences = find_func(np.abs(data),axis=1) <= silence_threshold
 combined_channel_silences = np.pad(combined_channel_silences, pad_width=1,mode='constant',constant_values=0)
 ```
 
-The next step is to find the start and stop locations.  There are going to be a lot of these because of all the zero crossings going on.  Unfortunately, that's an in efficiency that I could have easily avoided with C++.  I then calculate the durations of each period of silence and find the ones that are greater than the minimum.
+The next step is to find the start and stop locations.  There are going to be a lot of these because of all the zero crossings going on.  Unfortunately, that's an inefficiency that I could have easily avoided with C++.  I then calculate the durations of each period of silence and find the ones that are greater than the minimum.
 
 ```python
 # Get start and stop locations
@@ -59,7 +59,7 @@ long_durations = (durations > silence_duration_samples)
 long_duration_indexes = np.nonzero(long_durations)[0]
 ```
 
-If there are very short periods of noise in between long periods of silence they might be annoying due to their ear pollution effect.
+If there are very short periods of noise (i.e. blips) in between long periods of silence they might be annoying due to their ear pollution effect.
 
 ```python
 # Cut out short non-silence between silence
