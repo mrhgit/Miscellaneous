@@ -9,3 +9,6 @@ My Sony Bravia HDTV has built-in speakers and a fixed-level line out.  I had a L
 
 ## [Calculating](./Calculating_Resistor_Mass_XKCD_730/) (instead of PSPICE'ing) the value of the Resistor Mass in [XKCD #730](https://xkcd.com/730/)
 I couldn't find anyone who had simply calculated the value of the resistor mass, vs [finding it via simulation in PSPICE](https://www.reddit.com/r/xkcd/comments/7wchnq/value_of_resistor_network_in_730/), so I thought I'd go ahead and [do that](./Calculating_Resistor_Mass_XKCD_730/).  Hint:  there are 27 unknowns.
+
+## [Trimming Silence](./Trimming_Silence_In_Audio_Files) in Audio Files
+FFMPEG's silenceremove functionality is a bit cryptic and unwieldy.  This substitute was done as a quick project just to see how simply I could code it using Python, while still maintaining performance.  It ended up being able to process 2 hours of audio in 5.7 seconds on my midrange, 2020 machine!  Not bad for Python!  I also put in a lot of nice features like auto-thresholding and blip ignoring.
