@@ -207,3 +207,13 @@ Output File Duration = 4.909229
 
 result.wav:
 ![result.wav](./result.wav.png)
+
+Checking the new lengths of silence (greater than 0.25 seconds) shows that they are all exactly 0.5 seconds, which is the default setting for --silence-dur:
+```
+python3 trim_silence.py --input=result.wav --detect-only --silence-dur 0.25 --auto-threshold --auto-aggressiveness=10
+start         end           duration    
+0.0           0.5           0.5         
+0.859342      1.359342      0.5         
+3.047937      3.547937      0.5         
+4.409229      4.909229      0.5         
+```
