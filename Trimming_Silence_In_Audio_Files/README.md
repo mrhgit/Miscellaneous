@@ -1,4 +1,4 @@
-## Trimming Silence from Audio File
+## Trimming Silence In Audio Files
 
 ### Background
 
