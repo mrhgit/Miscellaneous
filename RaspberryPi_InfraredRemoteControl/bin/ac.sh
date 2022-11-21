@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/home/pi/Desktop/ir/bin/runremote.sh AC_ONAC74
+$( dirname -- "0"; )/runremote.sh AC_ONAC74
