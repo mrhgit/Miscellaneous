@@ -1,3 +1,3 @@
 #!/bin/bash
 
-/home/pi/Desktop/ir/bin/runremote.sh AC_OFF
+$( dirname -- "0"; )/runremote.sh AC_OFF
