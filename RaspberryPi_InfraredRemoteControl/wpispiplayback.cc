@@ -1,7 +1,7 @@
 /*
 Sends custom codes out over the SPI at a controlled rate to LG A/C device via an infrared diode.
 
-g++ wpispiplayback.cc -lwiringPi
+g++ wpispiplayback.cc -lwiringPi -o LGcontrol
 
 parameters: <command>
   command = AC_OFF, AC_ONHEAT76, AC_ONAC74
