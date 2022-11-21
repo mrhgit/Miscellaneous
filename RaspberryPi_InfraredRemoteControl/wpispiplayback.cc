@@ -1,10 +1,16 @@
 /*
-gcc -lstdc++ -lwiringPi wpispiplayback.cc 
-sudo sh -c "echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
-sudo ./a.out
-sudo sh -c "echo ondemand > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor"
- 
-Sends custom codes out over the SPI at a controlled rate to control device via an infrared diode.
+Sends custom codes out over the SPI at a controlled rate to LG A/C device via an infrared diode.
+
+g++ wpispiplayback.cc -lwiringPi
+
+parameters: <command>
+  command = AC_OFF, AC_ONHEAT76, AC_ONAC74
+  
+CPU performance scaling is handled by the code itself.
+
+Requires wiringPi library to be installed.  See wiringpi.com or type:
+  wget https://project-downloads.drogon.net/wiringpi-latest.deb
+  sudo dpkg -i wiringpi-latest.deb
 
 */
 
@@ -97,7 +103,7 @@ void spacer(int usec){
 
 void LGCode(int num) {
   const int ontime = 450;
-  const int offtime = 750;//750;
+  const int offtime = 750;
   const int longofftime = 1500;
   for (int i=0; i < (num-1); i++){
     pulseIR(ontime);
@@ -205,7 +211,6 @@ int main(int argc, char **argv)
     wiringPiSetup();
     wiringPiSPISetup (SPICHANNEL, SPISPEED);
     
-    //while (1) {
     for (int n=0; n < REPEAT_COUNT; n++) {
       remoteFunction();
       wiringPiSPIDataRW (SPICHANNEL, databuf, DATABUFSIZE) ;
