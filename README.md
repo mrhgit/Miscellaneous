@@ -13,5 +13,5 @@ I couldn't find anyone who had simply calculated the value of the resistor mass,
 ## [Trimming Silence](./Trimming_Silence_In_Audio_Files) in Audio Files
 FFMPEG's silenceremove functionality is a bit cryptic and unwieldy.  This substitute was done as a quick project just to see how simply I could code it using Python, while still maintaining performance.  It ended up being able to process 2 hours of audio in 5.7 seconds on my midrange, 2020 machine!  Not bad for Python!  I also put in a lot of nice features like auto-thresholding and blip ignoring.
 
-## Making [Screenshot Movies from tinySA Captures](./tinySA_Ultra_Movie_Capture)
+## Making [Movies from tinySA Captures](./tinySA_Ultra_Movie_Capture)
 The [tinySA](https://www.tinysa.org/wiki/) is a small spectrum analyzer that lets you send commands over [serial/USB](https://tinysa.org/wiki/pmwiki.php?n=Main.USBInterface), one of which is to retrieve a 'capture' (screenshot).  This script uses [moviepy](https://zulko.github.io/moviepy/index.html) to periodically capture images and combine those images into movies every frame-count frames.  This is useful when using the spectrum analyzer to monitor activity over a long period of time.  The max-hold functionality can be activated and reset at the beginning of every movie.
