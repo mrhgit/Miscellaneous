@@ -129,11 +129,9 @@ I configured my internet router to perform port-forwarding and added a bookmark 
 
 Lastly, I edited the /boot/config.txt file on the raspberry pi to allow headless boot with VNC so I could make changes with a nice graphical interfave, taped it all in to place in a concealed location with the LED pointing at the IR receiver on the A/C unit, and started it back up to much applause.
 
-#### Other Hardware
+## Other Hardware
 
-One of the nice things about the Raspberry Pi ecosystem is how supportive they are of backwards compatibility.  This code was immediately deployable on the Raspberry Pi Zero Wireless, which I felt slightly less guilty about leaving hooked up to do my A/C bidding.  It would probably work on any Raspberry Pi with an SPI adn running a version of Raspbian compatible with my CPU frequency control commands.
-
-As I said before, a nice, super-low power and super-low price option would be the ESP-8266, which I might get to one of these days...
+One of the nice things about the Raspberry Pi ecosystem is how supportive they are of backwards compatibility.  This code was immediately deployable on the Raspberry Pi Zero Wireless, which I felt slightly less guilty about leaving hooked up to do my A/C bidding.  It would probably work on any Raspberry Pi with an SPI and running a version of Raspbian compatible with my CPU frequency control commands.  It can also run on microcontrollers; see the Pico W section below for a link to the code.
 
 ### Raspberry Pi Pico W
 
