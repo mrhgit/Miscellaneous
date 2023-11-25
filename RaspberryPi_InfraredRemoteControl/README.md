@@ -1,5 +1,7 @@
 ## Using the Raspberry Pi as an IR Remote Control
 
+**UPDATE**: For lower cost, I've also implemented this on the Raspberry Pi Pico W .  See bottom of post for details.
+
 ### The Real Goal
 
 To cut to the chase, I wanted to be able to control my LG in-wall, air-conditioning/heating unit via the Internet (read "my phone") so that I could cool the apartment down (or heat it up) before returning home.  This describes how I did that, with a little Sony TV remote control signal diversion.  Why the diversion?  Because I thought a Sony TV remote signal would be a common one that someone researching this project could use to cross-referencing a different method.
@@ -105,6 +107,8 @@ The asterisk is because there was a bit of a catch with this approach, which was
 
 <pre>
 sudo echo performance > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+
+### 
 ...run it...
 sudo echo ondemand > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 </pre>
@@ -130,5 +134,9 @@ Lastly, I edited the /boot/config.txt file on the raspberry pi to allow headless
 One of the nice things about the Raspberry Pi ecosystem is how supportive they are of backwards compatibility.  This code was immediately deployable on the Raspberry Pi Zero Wireless, which I felt slightly less guilty about leaving hooked up to do my A/C bidding.  It would probably work on any Raspberry Pi with an SPI adn running a version of Raspbian compatible with my CPU frequency control commands.
 
 As I said before, a nice, super-low power and super-low price option would be the ESP-8266, which I might get to one of these days...
+
+### Raspberry Pi Pico W
+
+A couple years ago, I noticed how rare Raspberry Pi's had become and so I began playing with the [Pico W](https://www.raspberrypi.com/documentation/microcontrollers/raspberry-pi-pico.html) using [micropython](https://docs.micropython.org/en/v1.14/index.html).  The Pico W comes in at around $5, which is about three times cheaper than the Raspberry Pi Zero W, but plenty capable of performing this IoT-like task.  Development is a breeze with micropython and it's a great way to practice some asyncio programming (yes, that's optional).  Because the Pico W is a microcontroller, the approach for sending out messages was to program one pin as a PWM (pulse-width modulation) output and simply using micro-second sleep commands to key the signal pattern.  This was not possible using the kernel, due to software interrupts, but is perfectly fine in the microcontroller world!  You can find the script (here)[./pico_w/main.py].  Note that there are a few fields to edit before being able to run the code.  You'll need to enter your router's IP and update the physical locations to reflect your true Pico W hardware configuration.  You'll also need to enter your SSID and password into the script.  Obviously, take care not to share your password with others unless you mean to.
 
 Thanks for reading.
