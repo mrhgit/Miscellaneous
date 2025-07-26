@@ -1,6 +1,9 @@
 # Miscellaneous
 Various topics of interest... to me, at least!
 
+## Process Low-Density Parity Check (LDPC) Belief Propagation Networks in CUDA on an NVIDIA GPU
+A belief propagation network is one (popular) algorithm used to process digital messages containing low-density parity check (LDPC) forward error correction (FEC).  While not being "embarassingly" parallelizable, the algorithm can benefit from parallel execution using simple instructions and is therefore a candidate to run on a GPU.  Some proof-of-concept code is contained [here](./LDPC_in_CUDA_ProofOfConcept).
+
 ## Turn Your Raspberry Pi into an [IR/Infrared Remote Control](./RaspberryPi_InfraredRemoteControl/)
 **UPDATE**: For lower cost, I've also implemented this on the Raspberry Pi Pico W using uasyncio.  See bottom of post for details.
 
